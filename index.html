@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Karen J Carlisle | Aunt Enid</title>
+<meta name="description" content="Karen J Carlisle writes from Adelaide: Aunt Enid, Viola Stewart, Mrs Hudson and the Department of Curiosities. Find her at Supanova Adelaide.">
+<meta property="og:title" content="A homepage for Karen J Carlisle, made by Sparsh Saini">
+<meta property="og:description" content="A homepage idea for Karen J Carlisle and Aunt Enid: Protector Extraordinaire, made by Sparsh Saini. Not her official site.">
+<meta property="og:image" content="https://sparshsainied-prog.github.io/karenjcarlisle/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2334223a'/><path d='M16 3 L25 26 H7 Z' fill='%237a0a12'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/plate.jpg">
+<style>
+/* From the Aunt Enid cover: the dusk purple sky, black silhouettes, the gnomes' hat red, the
+   crack of yellow lightning, the stamped white title. Special Elite for the cover's rough
+   stamped lowercase, Libre Baskerville for the bold serif name and the reading text. */
+:root {
+  --dusk: #4a3352; --dusk-2: #34223a; --haze: #a898a8; --hat: #7a0a12; --hat-2: #5a0007;
+  --bolt: #f6e27a; --ink: #050405; --paper: #f4eee6;
+  --stamp: "Special Elite", "Courier New", monospace;
+  --text: "Libre Baskerville", Georgia, serif;
+  --gut: clamp(1rem, 5vw, 4rem);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--text); font-size: 1.05rem; line-height: 1.65; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--bolt); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--stamp); font-weight: 400; line-height: 1.05; margin: 0; text-transform: lowercase; }
+
+.strip { position: relative; z-index: 30; background: var(--paper); color: var(--ink); font-size: .85rem; text-align: center; padding: .45rem var(--gut); }
+
+/* nav: a gnome hat */
+.hatbtn { position: fixed; z-index: 40; right: 14px; bottom: 14px; display: flex; align-items: center; gap: .45rem; background: var(--ink); color: var(--paper); border: 2px solid var(--paper); padding: .35rem .85rem .35rem .5rem; font-family: var(--stamp); font-size: 1.05rem; cursor: pointer; }
+.hatbtn svg { width: 18px; height: 24px; }
+.menu { position: fixed; z-index: 50; inset: 0; background: rgba(5, 4, 5, .86); display: none; }
+.menu.open { display: block; }
+.menu ol { position: absolute; right: 14px; bottom: 74px; list-style: none; margin: 0; padding: 1rem 1.3rem; background: var(--dusk-2); border: 2px solid var(--paper); display: grid; gap: .3rem; text-align: right; }
+.menu a { font-family: var(--stamp); font-size: 1.35rem; text-decoration: none; }
+.menu a:hover { color: var(--bolt); }
+
+/* ---------- the gnomes stand up ---------- */
+.hero { position: relative; height: 380vh; }
+.stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--ink); }
+.frame { position: absolute; left: 50%; top: 14px; width: min(94vw, calc((100svh - 190px) * .6515)); transform: translateX(-50%); }
+.cover { position: relative; aspect-ratio: 960 / 1474; overflow: hidden; background: var(--ink); }
+.cover img { position: absolute; max-width: none; }
+.plate { inset: 0; width: 100%; height: 100%; }
+.art { position: absolute; left: 0; top: 0; width: 100%; height: 87.5%; overflow: hidden; }
+.art img { will-change: transform; }
+.g1 { left: 7.438%; top: 67.147%; width: 14.562%; }
+.g2 { left: 21.75%; top: 58.446%; width: 20.375%; }
+.g3 { left: 41.875%; top: 51.606%; width: 28.562%; }
+.g4 { left: 70.188%; top: 59.888%; width: 24%; }
+.claw { left: 18.688%; top: 45.602%; width: 21.688%; transform-origin: 8% 10%; }
+.cap { position: absolute; left: var(--gut); right: 150px; bottom: 16px; min-height: 140px; }
+.cap p { margin: 0; font-size: 1rem; line-height: 1.45; will-change: opacity; }
+.cap .c2 { position: absolute; left: 0; right: 0; top: 0; opacity: 0; pointer-events: none; }
+.cap .c2.live { pointer-events: auto; }
+.cap b { font-family: var(--stamp); font-weight: 400; color: var(--bolt); font-size: 1.15em; }
+.btn { display: inline-block; margin-top: .6rem; font-family: var(--stamp); font-size: 1.05rem; text-decoration: none; background: var(--hat); color: var(--paper); padding: .45rem 1rem; box-shadow: 3px 3px 0 var(--ink), 3px 3px 0 1px var(--paper); }
+.btn:hover { background: var(--hat-2); }
+.btn.line { background: none; box-shadow: inset 0 0 0 2px var(--paper); }
+@media (min-width: 900px) {
+  .frame { left: auto; right: 9vw; top: 50%; width: calc((100svh - 70px) * .6515); transform: translateY(-50%); }
+  .cap { left: var(--gut); right: auto; bottom: auto; top: 50%; width: min(28rem, 34vw); transform: translateY(-50%); }
+  .cap p { font-size: 1.35rem; }
+}
+
+/* ---------- calm sections ---------- */
+section.book, section.more, section.about, section.alley { padding: clamp(3.5rem, 9vw, 6.5rem) var(--gut); }
+section h2 { font-size: clamp(2.2rem, 8.5vw, 4rem); }
+.lede { max-width: 40rem; margin: 1rem 0 0; font-size: 1.15rem; }
+
+.book { background: var(--dusk); background: linear-gradient(180deg, var(--dusk-2), var(--dusk) 60%, #6c5670); display: grid; gap: 2rem; }
+.book img { max-width: 20rem; box-shadow: 10px 10px 0 var(--ink); }
+.book p { max-width: 38rem; }
+.buy { display: flex; flex-wrap: wrap; gap: .7rem 1rem; margin-top: 1.4rem; }
+@media (min-width: 900px) { .book { grid-template-columns: minmax(0, 20rem) 1fr; gap: 4rem; align-items: start; } }
+
+.more { background: var(--paper); color: var(--ink); }
+.series { display: grid; gap: 2.4rem; margin-top: 2.2rem; max-width: 64rem; }
+@media (min-width: 900px) { .series { grid-template-columns: repeat(3, 1fr); } }
+.series article { display: grid; grid-template-columns: 34% 1fr; gap: 1rem; align-items: start; }
+@media (min-width: 900px) { .series article { grid-template-columns: 1fr; } .series img { width: 70%; } }
+.series img { box-shadow: 6px 6px 0 var(--dusk); }
+.series h3 { font-size: 1.5rem; color: var(--hat); }
+.series p { margin: .4rem 0 0; font-size: .98rem; }
+
+.about { background: var(--ink); }
+.about p { max-width: 40rem; }
+.about .pull { font-family: var(--stamp); color: var(--bolt); font-size: clamp(1.5rem, 5.5vw, 2.3rem); line-height: 1.2; max-width: 34rem; margin: 2rem 0; }
+
+.alley { background: var(--hat-2); }
+.alley .where { font-family: var(--stamp); font-size: clamp(2rem, 8vw, 3.6rem); line-height: 1.05; margin-top: 1.2rem; color: var(--paper); }
+.alley p { max-width: 38rem; }
+.alley ul { list-style: none; padding: 0; margin: 2rem 0 0; max-width: 40rem; }
+.alley li { padding: .6rem 0; border-top: 1px dashed rgba(244, 238, 230, .45); }
+.alley li b { font-family: var(--stamp); font-weight: 400; color: var(--bolt); margin-right: .5rem; }
+.alley .links { display: flex; flex-wrap: wrap; gap: .7rem 1rem; margin-top: 2rem; }
+footer { background: var(--ink); color: #9b8f9c; text-align: center; font-size: .85rem; padding: 1rem var(--gut) 5.5rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero { height: auto; }
+  .stage { position: relative; height: 100svh; }
+}
+</style>
+</head>
+<body>
+<div class="strip">A homepage idea made by Sparsh Saini for Karen J Carlisle. Not their official site.</div>
+<button class="hatbtn" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 18 24" aria-hidden="true"><path d="M9 0 L18 22 H0 Z" fill="#7a0a12" stroke="#f4eee6" stroke-width="1.2"/></svg>menu</button>
+<div class="menu" id="menu">
+  <ol aria-label="Sections">
+    <li><a href="#top">aunt enid</a></li>
+    <li><a href="#book">the book</a></li>
+    <li><a href="#more">more worlds</a></li>
+    <li><a href="#about">karen</a></li>
+    <li><a href="#alley">supanova adelaide</a></li>
+  </ol>
+</div>
+
+<main>
+<section class="hero" id="top" aria-label="Aunt Enid: Protector Extraordinaire">
+  <div class="stage">
+    <div class="frame">
+      <div class="cover">
+        <img class="plate" src="img/plate.jpg" alt="The cover of Aunt Enid: Protector Extraordinaire by Karen J Carlisle: four garden gnomes in red hats stand in silhouette under a purple sky as a clawed hand reaches through a crack of lightning" width="960" height="1474">
+        <div class="art">
+          <img class="claw" src="img/claw.webp" alt="" width="208" height="198">
+          <img class="g1" src="img/gnome1.webp" alt="" width="140" height="573">
+          <img class="g2" src="img/gnome2.webp" alt="" width="196" height="697">
+          <img class="g3" src="img/gnome3.webp" alt="" width="274" height="798">
+          <img class="g4" src="img/gnome4.webp" alt="" width="230" height="671">
+        </div>
+      </div>
+    </div>
+    <div class="cap">
+      <p class="c1"><b>Something is coming.</b> Something dark, trading souls for passage. And Adelaide is ground zero.</p>
+      <p class="c2">Only one person stands between The Dark and the fate of the world. She's seventy-something, and she has gnomes.<br><a class="btn" href="https://www.amazon.com.au/s?k=Aunt+Enid+Protector+Extraordinaire+Karen+J+Carlisle">Meet Aunt Enid</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <img src="img/aunt-enid.jpg" alt="Aunt Enid: Protector Extraordinaire by Karen J Carlisle" width="800" height="1228" loading="lazy">
+  <div>
+    <h2>aunt enid: protector extraordinaire</h2>
+    <p class="lede">Daemons, fairies, it's all real. The Otherworld is bleeding through cracks into our world.</p>
+    <p>Aunt Enid is just your average seventy-something year old. She loves to cook, she's a regular at bingo, and she spends hours in her garden, talking to her army of garden gnomes and fussing over the colour of her hydrangeas. Then people start disappearing, and her great niece Sally is drawn into a secret world.</p>
+    <p>The series goes on with A Fey Tale, and Twixtmas, an Aunt Enid Christmas story (of sorts).</p>
+    <div class="buy">
+      <a class="btn" href="https://www.amazon.com.au/s?k=Aunt+Enid+Protector+Extraordinaire+Karen+J+Carlisle">Amazon</a>
+      <a class="btn line" href="https://karenjcarlisle.com/">Karen's website</a>
+    </div>
+  </div>
+</section>
+
+<section class="more" id="more">
+  <h2>more worlds</h2>
+  <p class="lede">Victorian mysteries with a steampunk-ish twist, and the women who solve them.</p>
+  <div class="series">
+    <article><img src="img/doctor-jack.jpg" alt="Doctor Jack and Other Tales cover" width="400" height="617" loading="lazy"><div><h3>viola stewart</h3><p>A widowed optician with a penchant for detectiving stumbles on a secret society of Men in Grey. Three books of tales, starting with Doctor Jack.</p></div></article>
+    <article><img src="img/mrs-hudson.jpg" alt="Mrs Hudson Investigates cover" width="400" height="614" loading="lazy"><div><h3>mrs hudson investigates</h3><p>Holmes has gone missing and Watson's gone after him. So it's up to Mrs Hudson, with Mary Watson's help.</p></div></article>
+    <article><img src="img/curiosities.jpg" alt="The Department of Curiosities cover" width="263" height="400" loading="lazy"><div><h3>department of curiosities</h3><p>Miss Mathilda Meriwether has a secret. Actually, she has several. A steampunk adventure for the good of the Empire.</p></div></article>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h2>karen</h2>
+  <p class="lede">Karen J Carlisle writes in Adelaide, the city Aunt Enid protects.</p>
+  <p class="pull">She was an author guest of honour at Nullus Anxietas X, the Australian Discworld Convention, this April.</p>
+  <p>Most months you'll find her behind a table somewhere in South Australia: comic fairs, makers markets in Gawler, the SA Author Showcase in Salisbury, and a themed "Christmas in July" table at Golden Grove.</p>
+</section>
+
+<section class="alley" id="alley">
+  <h2>come and find her</h2>
+  <div class="where">supanova adelaide<br>artist alley</div>
+  <p>Friday 30 October to Sunday 1 November, Adelaide Showground, Wayville. Books from every series.</p>
+  <ul>
+    <li><b>December</b>To be confirmed</li>
+    <li><b>20 March 2027</b>Turn the Page, Roll the Dice, a books and games day at the Hewitson Theatre, Evanston Park</li>
+  </ul>
+  <div class="links">
+    <a class="btn line" href="https://www.instagram.com/karenjcarlisle/">Instagram</a>
+    <a class="btn line" href="https://karenjcarlisle.com/events/">All her events</a>
+  </div>
+</section>
+</main>
+<footer>A mockup made by Sparsh Saini for Karen J Carlisle. Not affiliated, not live.</footer>
+
+<script>
+(() => {
+  const btn = document.querySelector('.hatbtn'), menu = document.getElementById('menu');
+  const setOpen = o => { menu.classList.toggle('open', o); btn.setAttribute('aria-expanded', o); if (o) menu.querySelector('a').focus(); };
+  btn.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+  menu.addEventListener('click', e => { if (e.target === menu || e.target.closest('a')) setOpen(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+
+  // the claw reaches out of the lightning first; then Aunt Enid's gnomes stand up out of the
+  // garden to face it, the small ones at the back first and the big one in the middle last
+  const hero = document.querySelector('.hero');
+  const claw = hero.querySelector('.claw');
+  const gs = [['.g1', .2], ['.g4', .3], ['.g2', .4], ['.g3', .52]].map(([s, at]) => [hero.querySelector(s), at]);
+  const c1 = hero.querySelector('.c1'), c2 = hero.querySelector('.c2');
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const back = t => { const c = 1.6; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
+  let ticking = false;
+  function frame() {
+    ticking = false;
+    let p;
+    if (still.matches) p = 1;
+    else { const r = hero.getBoundingClientRect(); p = clamp(-r.top / (hero.offsetHeight - innerHeight)); }
+    const k = clamp((p - .02) / .22), ek = 1 - Math.pow(1 - k, 3);
+    claw.style.transform = `scale(${(.15 + .85 * ek).toFixed(4)}) rotate(${((1 - ek) * -25).toFixed(2)}deg)`;
+    claw.style.opacity = clamp(k * 3).toFixed(3);
+    for (const [el, at] of gs) {
+      const t = clamp((p - at) / .24);
+      el.style.transform = `translateY(${((1 - back(t)) * 105).toFixed(3)}%)`;
+    }
+    const q = clamp((p - .82) / .1);
+    c1.style.opacity = (1 - q).toFixed(3);
+    c2.style.opacity = q.toFixed(3);
+    c2.classList.toggle('live', q > .5);
+  }
+  const go = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  addEventListener('scroll', go, { passive: true });
+  addEventListener('resize', go);
+  still.addEventListener('change', go);
+  frame();
+})();
+</script>
+</body>
+</html>
